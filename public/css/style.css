@@ -885,3 +885,73 @@ footer {
 .simple-card:hover .simple-card-content {
     border-color: var(--primary-color);
 }
+
+/* Modern Error Page Styles */
+.error-container {
+    text-align: center;
+    padding: 10rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+}
+
+.error-code {
+    font-family: 'Dancing Script', cursive;
+    font-size: 8rem;
+    color: var(--primary-color);
+    line-height: 1;
+    margin-bottom: 1rem;
+    opacity: 0.3;
+}
+
+.error-container h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.error-container p {
+    color: #666;
+    margin-bottom: 3rem;
+    max-width: 500px;
+}
+
+.back-home-btn {
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+}
+
+/* Success Page Styles */
+.success-container {
+    text-align: center;
+    padding: 10rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+}
+
+.success-icon {
+    font-family: 'Dancing Script', cursive;
+    font-size: 8rem;
+    color: #4CAF50; /* Success green */
+    line-height: 1;
+    margin-bottom: 1rem;
+    opacity: 0.3;
+}
+
+.success-container h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.success-container p {
+    color: #666;
+    margin-bottom: 3rem;
+    max-width: 500px;
+    font-size: 1.1rem;
+}
