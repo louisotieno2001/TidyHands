@@ -5,7 +5,6 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const morgan = require('morgan');
-const fetch = require("node-fetch");
 const app = express();
 const PORT = process.env.EXPRESS_PORT || 3007;
 
