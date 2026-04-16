@@ -5,13 +5,32 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const morgan = require('morgan');
-
+const fetch = require("node-fetch");
 const app = express();
-const PORT = process.env.EXPRESS_PORT || 3000;
+const PORT = process.env.EXPRESS_PORT || 3007;
 
 // Directus Configuration
 const url = process.env.DIRECTUS_URL;
 const accessToken = process.env.DIRECTUS_TOKEN;
+
+/**
+    @param path  {String}
+    @param config {RequestInit}
+*/
+// Query function for Directus API
+async function query(path, config) {
+  const res = await fetch(encodeURI(`${url}${path}`), {
+    headers: {
+      "Authorization": `Bearer ${accessToken}`,
+      "Content-Type": "application/json",
+    },
+    ...config
+  });
+  return res;
+}
+
+// Global query function for routes
+app.set('query', query);
 
 /**
     @param path  {String}

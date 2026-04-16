@@ -1,0 +1,30 @@
+<%- include('partials/header') %>
+
+<main class="modern-page">
+    <!-- Hero Section -->
+    <section class="inner-hero">
+        <h1><%= blog.title %></h1>
+        <div class="blog-meta">
+            <% if (blog.badge) { %>
+                <span class="blog-category"><%= blog.badge %></span>
+            <% } %>
+            <span class="blog-date"><%= new Date(blog.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) %></span>
+        </div>
+    </section>
+
+    <div class="modern-content">
+        <article class="single-blog-post">
+            <% if (blog.media) { %>
+                <div class="single-blog-image" style="background-image: url('<%= process.env.DIRECTUS_URL + "/assets/" + blog.media.id %>');"></div>
+            <% } else { %>
+                <div class="single-blog-image placeholder" style="background-image: url('/images/placeholder.jpg');"></div>
+            <% } %>
+
+            <div class="blog-body">
+                <%- blog.body %> 
+            </div>
+        </article>
+    </div>
+</main>
+
+<%- include('partials/footer') %>

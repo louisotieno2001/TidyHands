@@ -11,9 +11,54 @@ router.get('/get-quotation', (req, res) => {
   res.render('quotation', { title: 'Get a Quotation - TidyHands' });
 });
 
-// Blog page
-router.get('/blog', (req, res) => {
-  res.render('blog', { title: 'Cleaning Tips & News - TidyHands Blog' });
+// Blog page (List all blogs)
+router.get('/blog', async (req, res) => {
+    const query = req.app.get('query');
+    try {
+        const response = await query('/items/blogs?fields=*,media.*', {
+            method: 'GET'
+        });
+        const data = await response.json();
+        res.render('blog', { 
+            title: 'Cleaning Tips & News - TidyHands Blog',
+            blogs: data.data || []
+        });
+    } catch (error) {
+        console.error('Blog Fetch Error:', error);
+        res.render('blog', { 
+            title: 'Cleaning Tips & News - TidyHands Blog',
+            blogs: [] 
+        });
+    }
+});
+
+// Single Blog page
+router.get('/blog/:id', async (req, res) => {
+    const query = req.app.get('query');
+    try {
+        const response = await query(`/items/blogs/${req.params.id}?fields=*,media.*`, {
+            method: 'GET'
+        });
+        const data = await response.json();
+        
+        if (!data.data) {
+            return res.status(404).render('error', { 
+                title: 'Blog Not Found', 
+                message: 'The article you are looking for does not exist.' 
+            });
+        }
+
+        res.render('single-blog', { 
+            title: `${data.data.title} - TidyHands Blog`,
+            blog: data.data
+        });
+    } catch (error) {
+        console.error('Single Blog Fetch Error:', error);
+        res.status(500).render('error', { 
+            title: 'Error Fetching Blog', 
+            message: 'We could not load the article at this time.' 
+        });
+    }
 });
 
 // Services page
@@ -34,7 +79,7 @@ router.post('/contact', async (req, res) => {
     const { name, email, phone, message } = req.body;
 
     try {
-        const response = await query('/items/contacts_us', {
+        const response = await query('/items/contact_us', {
             method: 'POST',
             body: JSON.stringify({
                 name,

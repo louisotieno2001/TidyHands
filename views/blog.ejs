@@ -8,51 +8,33 @@
     </section>
 
     <div class="modern-content">
-        <div class="blog-grid">
-            <!-- Blog Card 1 -->
-            <article class="blog-card">
-                <div class="blog-image" style="background-image: url('/images/blog1.jpg');">
-                    <span class="blog-category">Commercial</span>
-                </div>
-                <div class="blog-content">
-                    <span class="blog-date">April 15, 2026</span>
-                    <h2>5 Tips for Maintaining a Clean & Productive Office</h2>
-                    <p>A tidy workspace isn't just about looks—it's the foundation of productivity and health. Learn how to keep your team motivated and clean...</p>
-                    <a href="/blog/office-cleaning-tips" class="read-more-btn">Read More <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </article>
-
-            <!-- Blog Card 2 -->
-            <article class="blog-card">
-                <div class="blog-image" style="background-image: url('/images/blog2.jpg');">
-                    <span class="blog-category">Residential</span>
-                </div>
-                <div class="blog-content">
-                    <span class="blog-date">April 10, 2026</span>
-                    <h2>Why Professional Deep Cleaning Matters More Than Ever</h2>
-                    <p>Standard surface cleaning only does so much. Discover why a deep clean is essential for removing hidden allergens and bacteria from your home...</p>
-                    <a href="/blog/deep-cleaning-benefits" class="read-more-btn">Read More <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </article>
-
-            <!-- Blog Card 3 -->
-            <article class="blog-card">
-                <div class="blog-image" style="background-image: url('/images/blog3.jpg');">
-                    <span class="blog-category">Tips & Tricks</span>
-                </div>
-                <div class="blog-content">
-                    <span class="blog-date">April 5, 2026</span>
-                    <h2>The Ultimate Checklist for a Move-In Ready Home</h2>
-                    <p>Moving is stressful enough. Our comprehensive checklist ensures your new space is pristine and sanitized before you even unpack the first box...</p>
-                    <a href="/blog/move-in-checklist" class="read-more-btn">Read More <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </article>
-        </div>
-
-        <div style="text-align: center; margin-top: 5rem;">
-            <a href="#" class="btn" style="padding: 1rem 3rem; background: transparent; border: 2px solid var(--primary-color); color: var(--primary-color);">Load More Articles</a>
-        </div>
+        <% if (blogs && blogs.length > 0) { %>
+            <div class="blog-grid">
+                <% blogs.forEach(blog => { %>
+                    <article class="blog-card">
+                        <div class="blog-image" style="background-image: url('<%= blog.media ? process.env.DIRECTUS_URL + "/assets/" + blog.media.id : "/images/placeholder.jpg" %>');">
+                            <% if (blog.badge) { %>
+                                <span class="blog-category"><%= blog.badge %></span>
+                            <% } %>
+                        </div>
+                        <div class="blog-content">
+                            <span class="blog-date"><%= new Date(blog.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) %></span>
+                            <h2><%= blog.title %></h2>
+                            <!-- Strip HTML for excerpt -->
+                            <p><%= blog.body.replace(/<[^>]*>?/gm, '').substring(0, 150) %>...</p>
+                            <a href="/blog/<%= blog.id %>" class="read-more-btn">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                <% }); %>
+            </div>
+        <% } else { %>
+            <div style="text-align: center; padding: 5rem 0;">
+                <i class="fas fa-feather" style="font-size: 3rem; color: #eee; margin-bottom: 2rem; display: block;"></i>
+                <h2>No articles yet.</h2>
+                <p>We are currently writing some sparkling content for you. Check back soon!</p>
+            </div>
+        <% } %>
     </div>
 </main>
 
-<%- include('partials/footer') %>
+<%- include('partials/header') %>
