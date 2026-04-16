@@ -15,9 +15,9 @@
     <div class="modern-content">
         <article class="single-blog-post">
             <% if (blog.media) { %>
-                <div class="single-blog-image" style="background-image: url('<%= process.env.DIRECTUS_URL + "/assets/" + blog.media.id %>');"></div>
+                <div class="blog-image" style="background-image: url('<%= blog.media ? "http://localhost:8050" + "/assets/" + blog.media.id : "/images/placeholder.png" %>');"></div>
             <% } else { %>
-                <div class="single-blog-image placeholder" style="background-image: url('/images/placeholder.jpg');"></div>
+                <div class="single-blog-image placeholder" style="background-image: url('/images/placeholder.png');"></div>
             <% } %>
 
             <div class="blog-body">

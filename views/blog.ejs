@@ -12,7 +12,7 @@
             <div class="blog-grid">
                 <% blogs.forEach(blog => { %>
                     <article class="blog-card">
-                        <div class="blog-image" style="background-image: url('<%= blog.media ? process.env.DIRECTUS_URL + "/assets/" + blog.media.id : "/images/placeholder.jpg" %>');">
+                        <div class="blog-image" style="background-image: url('<%= blog.media ? "http://localhost:8050" + "/assets/" + blog.media.id : "/images/placeholder.png" %>');">
                             <% if (blog.badge) { %>
                                 <span class="blog-category"><%= blog.badge %></span>
                             <% } %>
