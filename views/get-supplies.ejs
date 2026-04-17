@@ -1,0 +1,417 @@
+<%- include('partials/header') %>
+
+<main class="modern-page">
+    <!-- Hero Section -->
+    <section class="inner-hero">
+        <h1>Let us Handle Your Supply Needs</h1>
+        <p>From cleaning products to office furniture, hospital equipment to school supplies — we deliver quality products to your doorstep.</p>
+    </section>
+
+    <div class="modern-content">
+        <form action="/submit-supplies" method="POST">
+            <!-- Step 1: Contact Details -->
+            <div class="form-group">
+                <h3>1. Contact Information</h3>
+                <div class="input-row">
+                    <div class="field">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="John Doe" required>
+                    </div>
+                    <div class="field">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                    </div>
+                </div>
+                <div class="input-row">
+                    <div class="field">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+254 7XX XXX XXX" required>
+                    </div>
+                    <div class="field">
+                        <label for="location">Delivery Address</label>
+                        <input type="text" id="location" name="location" placeholder="e.g., Milimani, Kisumu" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Supply Category -->
+            <div class="form-group">
+                <h3>2. Supply Category</h3>
+                <div class="selection-grid">
+                    <label class="selection-card">
+                        <input type="radio" name="supply_category" value="cleaning-products" checked>
+                        <div class="card-content">Cleaning Products</div>
+                    </label>
+                    <label class="selection-card">
+                        <input type="radio" name="supply_category" value="office-supplies">
+                        <div class="card-content">Office Supplies</div>
+                    </label>
+                    <label class="selection-card">
+                        <input type="radio" name="supply_category" value="hospital-medical">
+                        <div class="card-content">Hospital & Medical</div>
+                    </label>
+                    <label class="selection-card">
+                        <input type="radio" name="supply_category" value="school-educational">
+                        <div class="card-content">School & Educational</div>
+                    </label>
+                    <label class="selection-card">
+                        <input type="radio" name="supply_category" value="furniture">
+                        <div class="card-content">Furniture</div>
+                    </label>
+                    <label class="selection-card">
+                        <input type="radio" name="supply_category" value="general">
+                        <div class="card-content">General Supplies</div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Step 3: Dynamic Category Details -->
+            <div class="form-group category-details" id="category-cleaning-products">
+                <h3>3. Cleaning Products (Select All That Apply)</h3>
+                <div class="checkbox-grid">
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="detergents">
+                        <span>Detergents & Soaps</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="disinfectants">
+                        <span>Disinfectants & Sanitizers</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="floor-cleaners">
+                        <span>Floor Cleaners</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="glass-cleaners">
+                        <span>Glass & Window Cleaners</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="bleach">
+                        <span>Bleach & Stain Removers</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="air-fresheners">
+                        <span>Air Fresheners</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="toilet-cleaners">
+                        <span>Toilet & Bathroom Cleaners</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="kitchen-cleaners">
+                        <span>Kitchen Cleaners</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="eco-friendly">
+                        <span>Eco-Friendly Products</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="cleaning-equipment">
+                        <span>Cleaning Equipment</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group category-details hidden" id="category-office-supplies">
+                <h3>3. Office Supplies (Select All That Apply)</h3>
+                <div class="checkbox-grid">
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="stationery">
+                        <span>Stationery</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="printer-supplies">
+                        <span>Printer Supplies & Ink</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="paper-products">
+                        <span>Paper Products</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="filing-organization">
+                        <span>Filing & Organization</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="desk-accessories">
+                        <span>Desk Accessories</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="computer-accessories">
+                        <span>Computer Accessories</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="breakroom-supplies">
+                        <span>Breakroom Supplies</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="safety-supplies">
+                        <span>Safety & Security</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group category-details hidden" id="category-hospital-medical">
+                <h3>3. Hospital & Medical Supplies (Select All That Apply)</h3>
+                <div class="checkbox-grid">
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="medical-equipment">
+                        <span>Medical Equipment</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="personal-protective">
+                        <span>Personal Protective Equipment</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="pharmaceuticals">
+                        <span>Pharmaceuticals & Medicine</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="surgical-supplies">
+                        <span>Surgical Supplies</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="diagnostic-supplies">
+                        <span>Diagnostic Supplies</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="wound-care">
+                        <span>Wound Care & Bandages</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="hospital-furniture">
+                        <span>Hospital Furniture</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="disposables">
+                        <span>Disposables (Gloves, Masks, etc.)</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group category-details hidden" id="category-school-educational">
+                <h3>3. School & Educational Supplies (Select All That Apply)</h3>
+                <div class="checkbox-grid">
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="books-textbooks">
+                        <span>Books & Textbooks</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="writing-supplies">
+                        <span>Writing Supplies</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="art-supplies">
+                        <span>Art & Craft Supplies</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="boards">
+                        <span>Chalkboards & Whiteboards</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="sports-equipment">
+                        <span>Sports & PE Equipment</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="laboratory">
+                        <span>Laboratory Equipment</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="school-furniture">
+                        <span>School Furniture</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="audio-visual">
+                        <span>Audio-Visual Equipment</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group category-details hidden" id="category-furniture">
+                <h3>3. Furniture (Select All That Apply)</h3>
+                <div class="checkbox-grid">
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="office-chairs">
+                        <span>Office Chairs</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="desks-tables">
+                        <span>Desks & Tables</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="storage">
+                        <span>Storage & Shelving</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="cabinets">
+                        <span>Cabinets & Cupboards</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="sofas-couches">
+                        <span>Sofas & Couches</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="beds-mattresses">
+                        <span>Beds & Mattresses</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="outdoor-furniture">
+                        <span>Outdoor Furniture</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="school-furniture">
+                        <span>School Furniture</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group category-details hidden" id="category-general">
+                <h3>3. General Supplies (Select All That Apply)</h3>
+                <div class="checkbox-grid">
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="electrical">
+                        <span>Electrical Supplies</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="plumbing">
+                        <span>Plumbing Supplies</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="tools-hardware">
+                        <span>Tools & Hardware</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="construction">
+                        <span>Construction Materials</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="packaging">
+                        <span>Packaging Supplies</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="safety-gear">
+                        <span>Safety Gear</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="industrial">
+                        <span>Industrial Supplies</span>
+                    </label>
+                    <label class="checkbox-card">
+                        <input type="checkbox" name="products" value="other">
+                        <span>Other</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Step 4: Order Type -->
+            <div class="form-group">
+                <h3>4. Order Type</h3>
+                <div class="simple-selection-grid">
+                    <label class="simple-card">
+                        <input type="radio" name="order_type" value="single" checked>
+                        <div class="simple-card-content">Single Order</div>
+                    </label>
+                    <label class="simple-card">
+                        <input type="radio" name="order_type" value="bulk">
+                        <div class="simple-card-content">Bulk Order</div>
+                    </label>
+                    <label class="simple-card">
+                        <input type="radio" name="order_type" value="subscription">
+                        <div class="simple-card-content">Subscription</div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Step 5: Subscription Duration (if subscription selected) -->
+            <div class="form-group">
+                <h3>5. Subscription Duration (For Subscriptions Only)</h3>
+                <div class="simple-selection-grid">
+                    <label class="simple-card">
+                        <input type="radio" name="subscription_duration" value="weekly">
+                        <div class="simple-card-content">Weekly</div>
+                    </label>
+                    <label class="simple-card">
+                        <input type="radio" name="subscription_duration" value="bi-weekly">
+                        <div class="simple-card-content">Bi-Weekly</div>
+                    </label>
+                    <label class="simple-card">
+                        <input type="radio" name="subscription_duration" value="monthly">
+                        <div class="simple-card-content">Monthly</div>
+                    </label>
+                    <label class="simple-card">
+                        <input type="radio" name="subscription_duration" value="quarterly">
+                        <div class="simple-card-content">Quarterly</div>
+                    </label>
+                    <label class="simple-card">
+                        <input type="radio" name="subscription_duration" value="6-months">
+                        <div class="simple-card-content">6 Months</div>
+                    </label>
+                    <label class="simple-card">
+                        <input type="radio" name="subscription_duration" value="yearly">
+                        <div class="simple-card-content">Yearly</div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Step 6: Delivery -->
+            <div class="form-group">
+                <h3>6. Delivery Options</h3>
+                <div class="simple-selection-grid">
+                    <label class="simple-card">
+                        <input type="radio" name="delivery" value="customer-pickup" checked>
+                        <div class="simple-card-content">Customer Pickup</div>
+                    </label>
+                    <label class="simple-card">
+                        <input type="radio" name="delivery" value="we-deliver">
+                        <div class="simple-card-content">We Deliver (Additional Cost)</div>
+                    </label>
+                    <label class="simple-card">
+                        <input type="radio" name="delivery" value="we-deliver-free">
+                        <div class="simple-card-content">We Deliver (Free on Orders Above KES 5,000)</div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Step 7: Additional Details -->
+            <div class="form-group" style="margin-top: 4rem;">
+                <h3>7. Order Details & Quantities</h3>
+                <textarea id="message" name="message" placeholder="Please specify the exact items and quantities you need (e.g., 5 office chairs, 10 reams of paper, 2 whiteboards). Include any specific brands, sizes, or preferences if applicable..." required></textarea>
+            </div>
+
+            <div style="text-align: center; margin-top: 5rem;">
+                <button type="submit" class="btn" style="padding: 1rem 4rem; font-size: 1.1rem; border-radius: 50px;">Submit Order Request</button>
+            </div>
+        </form>
+    </div>
+</main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const categoryRadios = document.querySelectorAll('input[name="supply_category"]');
+        const categoryDetails = document.querySelectorAll('.category-details');
+
+        function showCategoryDetails(categoryValue) {
+            categoryDetails.forEach(detail => {
+                if (detail.id === 'category-' + categoryValue) {
+                    detail.classList.remove('hidden');
+                    detail.style.display = 'block';
+                } else {
+                    detail.classList.add('hidden');
+                    detail.style.display = 'none';
+                }
+            });
+        }
+
+        categoryRadios.forEach(radio => {
+            radio.addEventListener('change', function() {
+                showCategoryDetails(this.value);
+            });
+        });
+
+        const selectedCategory = document.querySelector('input[name="supply_category"]:checked');
+        if (selectedCategory) {
+            showCategoryDetails(selectedCategory.value);
+        }
+    });
+</script>
+
+<%- include('partials/footer') %>

@@ -76,6 +76,24 @@
                     </div>
 
                     <div class="field">
+                        <label>Preferred Contact Method</label>
+                        <div class="simple-selection-grid">
+                            <label class="simple-card">
+                                <input type="radio" name="preferred_contact" value="email" checked>
+                                <div class="simple-card-content"><i class="fas fa-envelope" style="margin-right: 5px;"></i> Email</div>
+                            </label>
+                            <label class="simple-card">
+                                <input type="radio" name="preferred_contact" value="sms">
+                                <div class="simple-card-content"><i class="fas fa-comment" style="margin-right: 5px;"></i> SMS</div>
+                            </label>
+                            <label class="simple-card">
+                                <input type="radio" name="preferred_contact" value="call">
+                                <div class="simple-card-content"><i class="fas fa-phone" style="margin-right: 5px;"></i> Call</div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="field">
                         <label for="message">Your Message</label>
                         <textarea id="message" name="message" placeholder="How can we help you today?" required></textarea>
                     </div>

@@ -53,9 +53,378 @@
                 </div>
             </div>
 
-            <!-- Step 3: Cleaning Level -->
+            <!-- Step 3: Dynamic Category Details -->
+            <!-- Residential Details -->
+            <div class="form-group service-details" id="details-residential">
+                <h3>3. Residential Details</h3>
+                
+                <div class="field">
+                    <label for="res-rooms">Number of Rooms</label>
+                    <input type="number" id="res-rooms" name="res_rooms" min="1" placeholder="e.g., 3" class="inline-input">
+                </div>
+
+                <div class="field">
+                    <label for="res-bedrooms">Number of Bedrooms</label>
+                    <input type="number" id="res-bedrooms" name="res_bedrooms" min="0" placeholder="e.g., 2" class="inline-input">
+                </div>
+
+                <div class="field">
+                    <label for="res-bathrooms">Number of Bathrooms</label>
+                    <input type="number" id="res-bathrooms" name="res_bathrooms" min="1" placeholder="e.g., 2" class="inline-input">
+                </div>
+
+                <div class="field">
+                    <label for="res-kitchens">Number of Kitchens</label>
+                    <input type="number" id="res-kitchens" name="res_kitchens" min="0" placeholder="e.g., 1" class="inline-input">
+                </div>
+
+                <div class="field">
+                    <label for="res-living-rooms">Number of Living Rooms</label>
+                    <input type="number" id="res-living-rooms" name="res_living_rooms" min="0" placeholder="e.g., 1" class="inline-input">
+                </div>
+
+                <div class="field">
+                    <label for="res-other-rooms">Other Rooms (Study, Garage, Store, etc.)</label>
+                    <input type="text" id="res-other-rooms" name="res_other_rooms" placeholder="e.g., 1 study, 1 garage" class="full-width">
+                </div>
+
+                <div class="field">
+                    <label>What needs to be cleaned?</label>
+                    <div class="checkbox-grid">
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="res_cleaning_scope" value="floors">
+                            <span>Floors (Sweeping, Mopping, Vacuuming)</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="res_cleaning_scope" value="furniture">
+                            <span>Furniture (Dusting, Wiping)</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="res_cleaning_scope" value="windows">
+                            <span>Windows & Glass Doors</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="res_cleaning_scope" value="kitchen">
+                            <span>Kitchen (Counters, Cabinets, Appliances)</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="res_cleaning_scope" value="bathrooms">
+                            <span>Bathrooms (Toilet, Shower, Sink)</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="res_cleaning_scope" value="walls">
+                            <span>Walls & Light Switches</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="res_cleaning_scope" value="ceiling-fans">
+                            <span>Ceiling Fans & Light Fixtures</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="res_cleaning_scope" value="appliances">
+                            <span>Inside Appliances (Oven, Fridge, Microwave)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>Cleaning Area Scope</label>
+                    <div class="simple-selection-grid">
+                        <label class="simple-card">
+                            <input type="radio" name="res_area_scope" value="inside-only" checked>
+                            <div class="simple-card-content">Inside Only</div>
+                        </label>
+                        <label class="simple-card">
+                            <input type="radio" name="res_area_scope" value="inside-surrounding">
+                            <div class="simple-card-content">Inside & Immediate Surrounding</div>
+                        </label>
+                        <label class="simple-card">
+                            <input type="radio" name="res_area_scope" value="full-property">
+                            <div class="simple-card-content">Full Property (Compound, Garden)</div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="res-property-size">Estimated Property Size (Optional)</label>
+                    <input type="text" id="res-property-size" name="res_property_size" placeholder="e.g., 1/4 acre, 1500 sq ft" class="full-width">
+                </div>
+            </div>
+
+            <!-- Commercial Details -->
+            <div class="form-group service-details hidden" id="details-commercial">
+                <h3>3. Commercial Details</h3>
+
+                <div class="field">
+                    <label for="com-business-type">Business Type</label>
+                    <input type="text" id="com-business-type" name="com_business_type" placeholder="e.g., Office, Restaurant, Shop, Hospital, School" class="full-width" required>
+                </div>
+
+                <div class="field">
+                    <label for="com-business-name">Business/Company Name</label>
+                    <input type="text" id="com-business-name" name="com_business_name" placeholder="e.g., ABC Company Ltd" class="full-width">
+                </div>
+
+                <div class="field">
+                    <label for="com-floors">Number of Floors</label>
+                    <input type="number" id="com-floors" name="com_floors" min="1" placeholder="e.g., 2" class="inline-input">
+                </div>
+
+                <div class="field">
+                    <label for="com-rooms">Number of Rooms/Offices</label>
+                    <input type="number" id="com-rooms" name="com_rooms" min="1" placeholder="e.g., 10" class="inline-input">
+                </div>
+
+                <div class="field">
+                    <label for="com-bathrooms">Number of Bathrooms</label>
+                    <input type="number" id="com-bathrooms" name="com_bathrooms" min="1" placeholder="e.g., 4" class="inline-input">
+                </div>
+
+                <div class="field">
+                    <label for="com-total-area">Estimated Total Area (sq ft or sq m)</label>
+                    <input type="text" id="com-total-area" name="com_total_area" placeholder="e.g., 5000 sq ft" class="full-width">
+                </div>
+
+                <div class="field">
+                    <label for="com-employees">Number of Employees/Staff</label>
+                    <input type="number" id="com-employees" name="com_employees" min="1" placeholder="e.g., 25" class="inline-input">
+                </div>
+
+                <div class="field">
+                    <label for="com-daily-visitors">Estimated Daily Visitors/Clients</label>
+                    <input type="number" id="com-daily-visitors" name="com_daily_visitors" min="0" placeholder="e.g., 50" class="inline-input">
+                </div>
+
+                <div class="field">
+                    <label>What needs to be cleaned?</label>
+                    <div class="checkbox-grid">
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="com_cleaning_scope" value="floors">
+                            <span>Floors (All Types)</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="com_cleaning_scope" value="desks-workstations">
+                            <span>Desks & Workstations</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="com_cleaning_scope" value="restrooms">
+                            <span>Restrooms</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="com_cleaning_scope" value="kitchen-breakroom">
+                            <span>Kitchen/Breakroom</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="com_cleaning_scope" value="reception">
+                            <span>Reception & Waiting Areas</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="com_cleaning_scope" value="windows">
+                            <span>Windows & Glass Partitions</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="com_cleaning_scope" value="common-areas">
+                            <span>Common Areas & Hallways</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="com_cleaning_scope" value="equipment">
+                            <span>Office Equipment (Printers, Phones)</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="com_cleaning_scope" value="high-touch">
+                            <span>High-Touch Surfaces</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="com_cleaning_scope" value="parking">
+                            <span>Parking Lot/Garage</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="com_cleaning_scope" value="outdoor">
+                            <span>Outdoor Areas</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="com-special-requirements">Special Requirements</label>
+                    <textarea id="com-special-requirements" name="com_special_requirements" placeholder="e.g., Hospital-grade disinfection required, Food safety compliance, etc."></textarea>
+                </div>
+            </div>
+
+            <!-- Move In/Out Details -->
+            <div class="form-group service-details hidden" id="details-move-in-out">
+                <h3>3. Move In/Out Details</h3>
+
+                <div class="field">
+                    <label>Type of Move</label>
+                    <div class="simple-selection-grid">
+                        <label class="simple-card">
+                            <input type="radio" name="move_type" value="move-in" checked>
+                            <div class="simple-card-content">Move In</div>
+                        </label>
+                        <label class="simple-card">
+                            <input type="radio" name="move_type" value="move-out">
+                            <div class="simple-card-content">Move Out</div>
+                        </label>
+                        <label class="simple-card">
+                            <input type="radio" name="move_type" value="both">
+                            <div class="simple-card-content">Both</div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="move-rooms">Number of Rooms</label>
+                    <input type="number" id="move-rooms" name="move_rooms" min="1" placeholder="e.g., 4" class="inline-input">
+                </div>
+
+                <div class="field">
+                    <label for="move-bedrooms">Number of Bedrooms</label>
+                    <input type="number" id="move-bedrooms" name="move_bedrooms" min="0" placeholder="e.g., 3" class="inline-input">
+                </div>
+
+                <div class="field">
+                    <label for="move-bathrooms">Number of Bathrooms</label>
+                    <input type="number" id="move-bathrooms" name="move_bathrooms" min="1" placeholder="e.g., 2" class="inline-input">
+                </div>
+
+                <div class="field">
+                    <label for="move-kitchens">Number of Kitchens</label>
+                    <input type="number" id="move-kitchens" name="move_kitchens" min="0" placeholder="e.g., 1" class="inline-input">
+                </div>
+
+                <div class="field">
+                    <label>Property Size</label>
+                    <div class="simple-selection-grid">
+                        <label class="simple-card">
+                            <input type="radio" name="move_property_size" value="studio">
+                            <div class="simple-card-content">Studio/Bedsitter</div>
+                        </label>
+                        <label class="simple-card">
+                            <input type="radio" name="move_property_size" value="1-bedroom">
+                            <div class="simple-card-content">1 Bedroom</div>
+                        </label>
+                        <label class="simple-card">
+                            <input type="radio" name="move_property_size" value="2-bedroom">
+                            <div class="simple-card-content">2 Bedrooms</div>
+                        </label>
+                        <label class="simple-card">
+                            <input type="radio" name="move_property_size" value="3-bedroom">
+                            <div class="simple-card-content">3 Bedrooms</div>
+                        </label>
+                        <label class="simple-card">
+                            <input type="radio" name="move_property_size" value="4-bedroom">
+                            <div class="simple-card-content">4+ Bedrooms</div>
+                        </label>
+                        <label class="simple-card">
+                            <input type="radio" name="move_property_size" value="commercial">
+                            <div class="simple-card-content">Commercial Space</div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>Is the property furnished?</label>
+                    <div class="simple-selection-grid">
+                        <label class="simple-card">
+                            <input type="radio" name="move_furnished" value="yes" checked>
+                            <div class="simple-card-content">Yes, Fully Furnished</div>
+                        </label>
+                        <label class="simple-card">
+                            <input type="radio" name="move_furnished" value="partially">
+                            <div class="simple-card-content">Partially Furnished</div>
+                        </label>
+                        <label class="simple-card">
+                            <input type="radio" name="move_furnished" value="no">
+                            <div class="simple-card-content">No, Empty</div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>What needs to be cleaned?</label>
+                    <div class="checkbox-grid">
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="move_cleaning_scope" value="all-rooms">
+                            <span>All Rooms (Walls, Floors, Ceiling)</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="move_cleaning_scope" value="kitchen">
+                            <span>Kitchen (Cabinets, Counters, Appliances)</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="move_cleaning_scope" value="bathrooms">
+                            <span>Bathrooms (Full Sanitization)</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="move_cleaning_scope" value="windows">
+                            <span>Windows & Window Sills</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="move_cleaning_scope" value="wardrobes">
+                            <span>Wardrobes & Closets (Inside & Outside)</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="move_cleaning_scope" value="doors">
+                            <span>Doors, Frames & Handles</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="move_cleaning_scope" value="light-fixtures">
+                            <span>Light Fixtures & Switches</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="move_cleaning_scope" value="inside-appliances">
+                            <span>Inside Appliances (Oven, Fridge, Dishwasher)</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="move_cleaning_scope" value="garage">
+                            <span>Garage & Storage Areas</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="move_cleaning_scope" value="balcony">
+                            <span>Balcony & Patios</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="move_cleaning_scope" value="staircase">
+                            <span>Staircases</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="move_cleaning_scope" value="carpets">
+                            <span>Carpets & Upholstery</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="move_cleaning_scope" value="deep-stain-removal">
+                            <span>Deep Stain Removal</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>Cleaning Area Scope</label>
+                    <div class="simple-selection-grid">
+                        <label class="simple-card">
+                            <input type="radio" name="move_area_scope" value="inside-only" checked>
+                            <div class="simple-card-content">Inside Only</div>
+                        </label>
+                        <label class="simple-card">
+                            <input type="radio" name="move_area_scope" value="inside-surrounding">
+                            <div class="simple-card-content">Inside & Immediate Surrounding</div>
+                        </label>
+                        <label class="simple-card">
+                            <input type="radio" name="move_area_scope" value="full-property">
+                            <div class="simple-card-content">Full Property</div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="move-special-requests">Special Requests or Notes</label>
+                    <textarea id="move-special-requests" name="move_special_requests" placeholder="e.g., Pet stains to treat, Heavy grease in kitchen, Previous tenant left belongings, etc."></textarea>
+                </div>
+            </div>
+
+            <!-- Step 4: Cleaning Level -->
             <div class="form-group">
-                <h3>3. Cleaning Level</h3>
+                <h3>4. Cleaning Level</h3>
                 <div class="simple-selection-grid">
                     <label class="simple-card">
                         <input type="radio" name="cleaning_level" value="standard" checked>
@@ -68,9 +437,9 @@
                 </div>
             </div>
 
-            <!-- Step 4: Cleaning Frequency -->
+            <!-- Step 5: Cleaning Frequency -->
             <div class="form-group">
-                <h3>4. Cleaning Frequency</h3>
+                <h3>5. Cleaning Frequency</h3>
                 <div class="selection-grid">
                     <label class="selection-card">
                         <input type="radio" name="frequency" value="one-time" checked>
@@ -91,10 +460,31 @@
                 </div>
             </div>
 
-            <!-- Step 5: Special Instructions -->
+            <!-- Step 6: Preferred Date & Time -->
+            <div class="form-group">
+                <h3>6. Preferred Date & Time</h3>
+                <div class="input-row">
+                    <div class="field">
+                        <label for="preferred-date">Preferred Date</label>
+                        <input type="date" id="preferred-date" name="preferred_date">
+                    </div>
+                    <div class="field">
+                        <label for="preferred-time">Preferred Time</label>
+                        <select id="preferred-time" name="preferred_time" class="time-select">
+                            <option value="">Select a time</option>
+                            <option value="morning">Morning (7:00 AM - 12:00 PM)</option>
+                            <option value="afternoon">Afternoon (12:00 PM - 5:00 PM)</option>
+                            <option value="evening">Evening (5:00 PM - 8:00 PM)</option>
+                            <option value="flexible">Flexible/Anytime</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 7: Special Instructions -->
             <div class="form-group" style="margin-top: 4rem;">
-                <h3>5. Special Instructions</h3>
-                <textarea id="message" name="message" placeholder="Provide any specific details or special requests here..."></textarea>
+                <h3>7. Additional Information</h3>
+                <textarea id="message" name="message" placeholder="Any other details, special requirements, or questions you have for us..."></textarea>
             </div>
 
             <div style="text-align: center; margin-top: 5rem;">
@@ -103,5 +493,42 @@
         </form>
     </div>
 </main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const categoryRadios = document.querySelectorAll('input[name="service_category"]');
+        const serviceDetails = document.querySelectorAll('.service-details');
+
+        function showServiceDetails(categoryValue) {
+            serviceDetails.forEach(detail => {
+                if (detail.id === 'details-' + categoryValue) {
+                    detail.classList.remove('hidden');
+                    detail.style.display = 'block';
+                } else {
+                    detail.classList.add('hidden');
+                    detail.style.display = 'none';
+                }
+            });
+        }
+
+        categoryRadios.forEach(radio => {
+            radio.addEventListener('change', function() {
+                showServiceDetails(this.value);
+            });
+        });
+
+        const selectedCategory = document.querySelector('input[name="service_category"]:checked');
+        if (selectedCategory) {
+            showServiceDetails(selectedCategory.value);
+        }
+
+        // Set minimum date to today
+        const dateInput = document.getElementById('preferred-date');
+        if (dateInput) {
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.setAttribute('min', today);
+        }
+    });
+</script>
 
 <%- include('partials/footer') %>
