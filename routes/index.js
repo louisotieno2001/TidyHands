@@ -84,8 +84,7 @@ router.post('/contact', async (req, res) => {
     const { name, email, phone, preferred_contact, message } = req.body;
 
     const details = {
-        preferred_contact_method: preferred_contact,
-        message
+        preferred_contact_method: preferred_contact
     };
 
     try {
@@ -95,6 +94,7 @@ router.post('/contact', async (req, res) => {
                 name,
                 email,
                 phone,
+                message,
                 details: JSON.stringify(details),
                 status: 'published'
             })
@@ -139,49 +139,41 @@ router.post('/submit-quotation', async (req, res) => {
                           Array.isArray(move_cleaning_scope) ? move_cleaning_scope : [];
 
     const details = {
-        service_category,
-        details: {
-            residential: service_category === 'residential' ? {
-                rooms: res_rooms,
-                bedrooms: res_bedrooms,
-                bathrooms: res_bathrooms,
-                kitchens: res_kitchens,
-                living_rooms: res_living_rooms,
-                other_rooms: res_other_rooms,
-                cleaning_scope: cleaningScope,
-                area_scope: res_area_scope,
-                property_size: res_property_size
-            } : null,
-            commercial: service_category === 'commercial' ? {
-                business_type: com_business_type,
-                business_name: com_business_name,
-                floors: com_floors,
-                rooms: com_rooms,
-                bathrooms: com_bathrooms,
-                total_area: com_total_area,
-                employees: com_employees,
-                daily_visitors: com_daily_visitors,
-                cleaning_scope: cleaningScope,
-                special_requirements: com_special_requirements
-            } : null,
-            move_in_out: service_category === 'move-in-out' ? {
-                move_type,
-                rooms: move_rooms,
-                bedrooms: move_bedrooms,
-                bathrooms: move_bathrooms,
-                kitchens: move_kitchens,
-                property_size: move_property_size,
-                furnished: move_furnished,
-                cleaning_scope: cleaningScope,
-                area_scope: move_area_scope,
-                special_requests: move_special_requests
-            } : null
-        },
-        cleaning_level,
-        frequency,
-        preferred_date,
-        preferred_time,
-        additional_info: message
+        residential: service_category === 'residential' ? {
+            rooms: res_rooms,
+            bedrooms: res_bedrooms,
+            bathrooms: res_bathrooms,
+            kitchens: res_kitchens,
+            living_rooms: res_living_rooms,
+            other_rooms: res_other_rooms,
+            cleaning_scope: cleaningScope,
+            area_scope: res_area_scope,
+            property_size: res_property_size
+        } : null,
+        commercial: service_category === 'commercial' ? {
+            business_type: com_business_type,
+            business_name: com_business_name,
+            floors: com_floors,
+            rooms: com_rooms,
+            bathrooms: com_bathrooms,
+            total_area: com_total_area,
+            employees: com_employees,
+            daily_visitors: com_daily_visitors,
+            cleaning_scope: cleaningScope,
+            special_requirements: com_special_requirements
+        } : null,
+        move_in_out: service_category === 'move-in-out' ? {
+            move_type,
+            rooms: move_rooms,
+            bedrooms: move_bedrooms,
+            bathrooms: move_bathrooms,
+            kitchens: move_kitchens,
+            property_size: move_property_size,
+            furnished: move_furnished,
+            cleaning_scope: cleaningScope,
+            area_scope: move_area_scope,
+            special_requests: move_special_requests
+        } : null
     };
 
     try {
@@ -192,7 +184,13 @@ router.post('/submit-quotation', async (req, res) => {
                 email,
                 phone,
                 location,
+                service_category,
+                cleaning_level,
+                frequency,
+                preferred_date,
+                preferred_time,
                 details: JSON.stringify(details),
+                message,
                 status: 'published'
             })
         });
